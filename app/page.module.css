@@ -1,0 +1,230 @@
+:root {
+  --primary-color: #2a2828;
+  --secondary-color: #f1f1f1;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --box-shadow: 0 1px 5px rgb(73, 141, 30);
+}
+
+.main{
+    display: grid;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    /* padding: 20px 40px; */
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+/* Navigation Bar */
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    padding: 20px 40px; 
+    /* position: fixed;
+    width: 100%;
+    background-color: var(--primary-color); */
+}
+
+/* Logo */
+.logo{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 10px;
+    position: relative;
+    left: 30px;
+    bottom: 16px;
+}
+
+.logo p{
+    border: 1px solid var(--box-shadow);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    right: 49px;
+    top: 50px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 10px;
+}
+
+/* Navigation Links */
+.navbar ul{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.navbar ul a:hover{
+    color: var(--success-color);
+    text-decoration: underline;
+    position: relative;
+    transition: 1s ease;
+}
+
+/* Contact Button */
+.contactButton{
+    border: 1px solid var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.contactButton:hover{
+    background-color: var(--info-color);
+    color: var(--secondary-color);
+    transition: 1s ease;
+    border: 1px solid var(--primary-color);
+}
+
+/* Main Content */
+.mainContent{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    /* background: url(/images.jpg);
+    background-size: cover;
+    background-position: center; */
+    padding: 20px 40px; 
+}
+
+.content h1{
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: -30px;
+    letter-spacing: -2px;
+}
+
+.content p{
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.contentButton {
+    background-color: var(--info-color);
+    border: 1px solid var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.contentButton:hover{
+    background-color: var(--danger-color);
+    color: var(--secondary-color);
+    transition: 1s ease;
+    border: 1px solid var(--primary-color);
+}
+
+/* Image Container */
+.circle{
+    position: absolute;
+	border: 1px solid rgba(255, 255, 255, 0.46);
+	/* left: 16px; */
+	bottom: 42px;
+	width: 70px;
+	height: 70px;
+	border-radius: 999px; 
+}
+
+.orbit{
+    position: absolute;
+    top: 200px;
+    right: 300px;
+    width: 154px;
+    height: 80px;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+}
+
+/* Services Content */
+.servicesContent{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px 40px; 
+}
+
+.servicesContent h2{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.servicesContent p{
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    gap: 2rem;
+    padding: 20px 40px; 
+}
+
+.card h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--danger-color);
+}
+
+.card p{
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+/* Portfolio */
+.portfolio h2{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding: 20px 40px; 
+}
+
+.portfolio p{
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    padding: 20px 40px; 
+}
+
+.about{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+
+.about h2{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+.footer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.footer ul{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.footer ul a:hover{
+    color: var(--success-color);
+    text-decoration: underline;
+    position: relative;
+    transition: 1s ease;
+}
