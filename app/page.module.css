@@ -158,7 +158,7 @@
     text-align: center;
 }
 
-.stat:hover{
+.stat:hover {
     transform: translateY(-3);
 }
 
@@ -189,7 +189,7 @@
     padding: 20px 40px;
 }
 
-.card:hover{
+.card:hover {
     transform: translateY(-5);
 }
 
@@ -238,7 +238,7 @@
     border-radius: 16px;
 }
 
-.cardProject:hover{
+.cardProject:hover {
     transform: translateY(-5);
 }
 
@@ -308,6 +308,11 @@
 
 @media (max-width: 640px) {
 
+    .main {
+        background-color: var(--primary-color);
+    }
+
+
     .mainContent,
     .gridAboutGrid,
     .gridProjectsGrid,
@@ -316,7 +321,7 @@
         grid-template-columns: 1fr;
     }
 
-    .content{
+    .content {
         line-height: 2.8;
     }
 
@@ -329,7 +334,7 @@
     }
 
     .orbit,
-    .circle{
+    .circle {
         display: none;
     }
 }
