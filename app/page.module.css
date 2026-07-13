@@ -305,7 +305,7 @@
     border-top: 1px solid var(--border);
 }
 
-@media (max-width: 840px) {
+@media (max-width: 640px) {
 
     .mainContent,
     .gridAboutGrid,
