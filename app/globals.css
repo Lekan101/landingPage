@@ -3,6 +3,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Design tokens used by page.module.css */
+  --primary-color: #07111f;
+  --secondary-color: #f4f7fb;
+  --success-color: #0f1b2d;
+  --danger-color: #9fb0c9;
+  --warning-color: #6ee7b7;
+  --info-color: #7c93ff;
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #7c93ff;
+  --accent-2: #6ee7b7;
+  --box-shadow: rgba(0,0,0,0.18);
 }
 
 @theme inline {
