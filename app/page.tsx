@@ -71,7 +71,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/David-Lekan"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -298,7 +298,7 @@ export default function Home() {
           </a>
 
           <a
-            href="https://linkedin.com/in/your-linkedin"
+            href="https://linkedin.com/in/David-Lekan"
             target="_blank"
             rel="noopener noreferrer"
           >
