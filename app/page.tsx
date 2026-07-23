@@ -6,8 +6,7 @@ import { useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(true);
-  
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className={styles.main}>
@@ -17,19 +16,26 @@ export default function Home() {
           <a href="#">Dev. David</a>
         </h1>
 
-        
         <ul id="main-nav" className={menuOpen ? styles.showMenu : undefined}>
           <li>
-            <a href="#home" onClick={() => setMenuOpen(true)}>Home</a>
+            <a href="#home" onClick={() => setMenuOpen(false)}>
+              Home
+            </a>
           </li>
           <li>
-            <a href="#services" onClick={() => setMenuOpen(true)}>Services</a>
+            <a href="#services" onClick={() => setMenuOpen(false)}>
+              Services
+            </a>
           </li>
           <li>
-            <a href="#project" onClick={() => setMenuOpen(true)}>Project</a>
+            <a href="#project" onClick={() => setMenuOpen(false)}>
+              Project
+            </a>
           </li>
           <li>
-            <a href="#about" onClick={() => setMenuOpen(true)}>About</a>
+            <a href="#about" onClick={() => setMenuOpen(false)}>
+              About
+            </a>
           </li>
         </ul>
         <a href="#contact" className={styles.contactButton}>
@@ -58,10 +64,12 @@ export default function Home() {
             storytelling, and products that feel effortless to use.
           </p>
 
-          <div className={styles.socialButtons}>
-            <a href="#services" className={styles.contentButton}>
+           <a href="#services" className={styles.contentButton}>
               Services
             </a>
+
+          <div className={styles.socialButtons}>
+           
             <a
               href="https://github.com/lekan101"
               target="_blank"
@@ -263,7 +271,13 @@ export default function Home() {
                 I’m open to collaboration, freelance projects, and new ideas.
               </p>
             </div>
-            <form className={styles.contactForm}>
+            <form
+              className={styles.contactForm}
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("Thanks for your message!");
+              }}
+            >
               <input type="text" placeholder="Your Name" />
 
               <input type="email" placeholder="Email" />
