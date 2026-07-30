@@ -141,3 +141,4 @@ export const footerLinks = [
 ];
 
 export const contactEmail = "hello@devdavid.dev";
+export const contactWhatsApp = "YOUR_PHONE_NUMBER";

@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../page.module.css";
 import { navItems } from "../lib/siteData";
+import { ContactModal } from "./ContactModal";
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
@@ -25,6 +27,15 @@ export function Navbar() {
     setTheme(nextTheme);
     document.documentElement.dataset.theme = nextTheme;
     window.localStorage.setItem("theme", nextTheme);
+  };
+
+  const openContactModal = () => {
+    setModalOpen(true);
+    closeMenu();
+  };
+
+  const closeContactModal = () => {
+    setModalOpen(false);
   };
 
   const SunIcon = (
@@ -53,53 +64,61 @@ export function Navbar() {
   );
 
   return (
-    <header className={styles.navbar} role="banner">
-      <div className={styles.brandGroup}>
-        <Link href="#home" className={styles.brand} onClick={closeMenu}>
-          Dev. David
-        </Link>
-      </div>
+    <>
+      <header className={styles.navbar} role="banner">
+        <div className={styles.brandGroup}>
+          <Link href="#home" className={styles.brand} onClick={closeMenu}>
+            Dev. David
+          </Link>
+        </div>
 
-      <button
-        type="button"
-        className={styles.navToggle}
-        aria-expanded={menuOpen}
-        aria-controls="primary-navigation"
-        aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-        onClick={() => setMenuOpen((value) => !value)}
-      >
-        <span aria-hidden="true">{menuOpen ? "✕" : "☰"}</span>
-      </button>
-
-      <nav
-        id="primary-navigation"
-        className={`${styles.navContainer} ${menuOpen ? styles.navOpen : ""}`}
-        aria-label="Primary"
-      >
-        <ul className={styles.navList}>
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href} className={styles.navLink} onClick={closeMenu}>
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <div className={styles.navActions}>
         <button
           type="button"
-          className={styles.themeToggle}
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          className={styles.navToggle}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          onClick={() => setMenuOpen((value) => !value)}
         >
-          {theme === "dark" ? SunIcon : MoonIcon}
+          <span aria-hidden="true">{menuOpen ? "✕" : "☰"}</span>
         </button>
-        <Link href="#contact" className={styles.navCta} onClick={closeMenu}>
-          Get in touch
-        </Link>
-      </div>
-    </header>
+
+        <nav
+          id="primary-navigation"
+          className={`${styles.navContainer} ${menuOpen ? styles.navOpen : ""}`}
+          aria-label="Primary"
+        >
+          <ul className={styles.navList}>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className={styles.navLink} onClick={closeMenu}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className={styles.navActions}>
+          <button
+            type="button"
+            className={styles.themeToggle}
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? SunIcon : MoonIcon}
+          </button>
+          <button
+            type="button"
+            className={styles.navCta}
+            onClick={openContactModal}
+            aria-label="Open contact options"
+          >
+            Get in touch
+          </button>
+        </div>
+      </header>
+      <ContactModal isOpen={modalOpen} onClose={closeContactModal} />
+    </>
   );
 }
