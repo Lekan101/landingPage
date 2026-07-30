@@ -188,11 +188,11 @@ export default function Home() {
             <article className={styles.cardProject}>
               <div className={styles.thumb}>
               <Image
-              className="thumb"
               src="/image.png"
               alt="Northstar Studio thumbnail"
-              width={300}
-              height={300}
+              fill
+              sizes="(max-width: 740px) 100vw, 33vw"
+              style={{ objectFit: 'cover' }}
               priority
               />
               </div>
@@ -212,11 +212,11 @@ export default function Home() {
             <article className={styles.cardProject}>
               <div className={styles.thumb}>
                 <Image
-                  className="thumb"
                   src="/Screenshot_1.png"
                   alt="Pulse Analytics thumbnail"
-                  width={300}
-                  height={300}
+                  fill
+                  sizes="(max-width: 740px) 100vw, 33vw"
+                  style={{ objectFit: 'cover' }}
                   priority
                 />
               </div>
@@ -236,11 +236,11 @@ export default function Home() {
             <article className={styles.cardProject}>
               <div className={styles.thumb}>
                 <Image
-                  className="thumb"
                   src="/Screenshot_2.png"
                   alt="Bright Market thumbnail"
-                  width={300}
-                  height={300}
+                  fill
+                  sizes="(max-width: 740px) 100vw, 33vw"
+                  style={{ objectFit: 'cover' }}
                   priority
                 />
               </div>
