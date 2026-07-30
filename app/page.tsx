@@ -186,7 +186,16 @@ export default function Home() {
             className={styles.projectLink}
           >
             <article className={styles.cardProject}>
-              <div className={styles.thumb}></div>
+              <div className={styles.thumb}>
+              <Image
+              className="thumb"
+              src="/image.png"
+              alt="Northstar Studio thumbnail"
+              width={300}
+              height={300}
+              priority
+              />
+              </div>
               <h3>Northstar Studio</h3>
               <p>
                 Created a premium landing experience with strong storytelling
@@ -201,7 +210,16 @@ export default function Home() {
             className={styles.projectLink}
           >
             <article className={styles.cardProject}>
-              <div className={styles.thumb}></div>
+              <div className={styles.thumb}>
+                <Image
+                  className="thumb"
+                  src="/Screenshot_1.png"
+                  alt="Pulse Analytics thumbnail"
+                  width={300}
+                  height={300}
+                  priority
+                />
+              </div>
               <h3>Pulse Analytics</h3>
               <p>
                 Built a product dashboard interface with clear data
@@ -216,7 +234,16 @@ export default function Home() {
             className={styles.projectLink}
           >
             <article className={styles.cardProject}>
-              <div className={styles.thumb}></div>
+              <div className={styles.thumb}>
+                <Image
+                  className="thumb"
+                  src="/Screenshot_2.png"
+                  alt="Bright Market thumbnail"
+                  width={300}
+                  height={300}
+                  priority
+                />
+              </div>
               <h3>Bright Market</h3>
               <p>
                 Delivered a fast, responsive ecommerce site focused on clarity,
