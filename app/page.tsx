@@ -2,11 +2,36 @@
 
 import Image from "next/image";
 import styles from "./page.module.css"
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className={styles.main}>
@@ -173,9 +198,9 @@ export default function Home() {
         </div>
       </aside>
       {/* portfolio */}
-      <section id="project" className={styles.container}>
-        <h2 className={styles.sectionTitle}>Featured Projects</h2>
-        <p className={styles.sectionCopy}>
+      <section id="project" className={`${styles.container} ${styles.projectSection}`} ref={sectionRef}>
+        <h2 className={`${styles.sectionTitle} ${styles.animateTitle}`}>Featured Projects</h2>
+        <p className={`${styles.sectionCopy} ${styles.animateText}`}>
           A few selected highlights from recent work.
         </p>
         <div className={styles.gridProjectsGrid}>
@@ -184,9 +209,11 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.projectLink}
+            ref={(el) => { cardRefs.current[0] = el; }}
           >
             <article className={styles.cardProject}>
               <div className={styles.thumb}>
+              <div className={styles.thumbOverlay} />
               <Image
               src="/image.png"
               alt="Northstar Studio thumbnail"
@@ -208,9 +235,11 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.projectLink}
+            ref={(el) => { cardRefs.current[1] = el; }}
           >
             <article className={styles.cardProject}>
               <div className={styles.thumb}>
+                <div className={styles.thumbOverlay} />
                 <Image
                   src="/Screenshot_1.png"
                   alt="Pulse Analytics thumbnail"
@@ -232,9 +261,11 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.projectLink}
+            ref={(el) => { cardRefs.current[2] = el; }}
           >
             <article className={styles.cardProject}>
               <div className={styles.thumb}>
+                <div className={styles.thumbOverlay} />
                 <Image
                   src="/Screenshot_2.png"
                   alt="Bright Market thumbnail"
