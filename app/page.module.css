@@ -99,7 +99,13 @@ html {
   background: transparent;
   color: var(--secondary-color);
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.themeToggle svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 
 .themeToggle:hover,
