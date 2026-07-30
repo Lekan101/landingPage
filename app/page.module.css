@@ -85,6 +85,27 @@ html {
 .navActions {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+}
+
+.themeToggle {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.themeToggle:hover,
+.themeToggle:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .navCta {
