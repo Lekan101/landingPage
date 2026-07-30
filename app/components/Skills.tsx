@@ -17,7 +17,7 @@ export function Skills() {
 
   const skillsWithDelay = useMemo(
     () => skills.map((skill, index) => ({ ...skill, delay: index * 80 })),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export function Skills() {
           requestAnimationFrame(tick);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(sectionRef.current);
@@ -55,30 +55,33 @@ export function Skills() {
 
   return (
     <section id="skills" className={styles.skillsSection} ref={sectionRef}>
-      <div className={styles.sectionHeader}>
-        <h2 className={styles.sectionTitle}>Skills</h2>
-        <p className={styles.sectionIntro}>
-          Core frontend capabilities, design sensibilities, and the tools I use daily.
-        </p>
-      </div>
+      <div>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Skills</h2>
+          <p className={styles.sectionIntro}>
+            Core frontend capabilities, design sensibilities, and the tools I
+            use daily.
+          </p>
+        </div>
 
-      <div className={styles.skillCountersGrid}>
-        <article className={styles.counterCard}>
-          <strong>{counts.projects}+ </strong>
-          <span>Projects Completed</span>
-        </article>
-        <article className={styles.counterCard}>
-          <strong>{counts.years}+ </strong>
-          <span>Years Learning</span>
-        </article>
-        <article className={styles.counterCard}>
-          <strong>{counts.technologies}+ </strong>
-          <span>Technologies Used</span>
-        </article>
-        <article className={styles.counterCard}>
-          <strong>{counts.commitment}% </strong>
-          <span>Commitment</span>
-        </article>
+        <div className={styles.skillCountersGrid}>
+          <article className={styles.counterCard}>
+            <strong>{counts.projects}+ </strong>
+            <span>Projects Completed</span>
+          </article>
+          <article className={styles.counterCard}>
+            <strong>{counts.years}+ </strong>
+            <span>Years Learning</span>
+          </article>
+          <article className={styles.counterCard}>
+            <strong>{counts.technologies}+ </strong>
+            <span>Technologies Used</span>
+          </article>
+          <article className={styles.counterCard}>
+            <strong>{counts.commitment}% </strong>
+            <span>Commitment</span>
+          </article>
+        </div>
       </div>
 
       <div className={styles.skillBarGrid}>
