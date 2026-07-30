@@ -7,8 +7,11 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [counts, setCounts] = useState({ years: 0, projects: 0, passion: 0 });
   const sectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const hasCounted = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,6 +34,33 @@ export default function Home() {
     });
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!statsRef.current || hasCounted.current) return;
+    const statsObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        hasCounted.current = true;
+        statsObserver.disconnect();
+        const duration = 1200;
+        const steps = 30;
+        const stepTime = duration / steps;
+        let step = 0;
+        const timer = setInterval(() => {
+          step++;
+          setCounts({
+            years: Math.min(Math.round((8 / steps) * step), 8),
+            projects: Math.min(Math.round((40 / steps) * step), 40),
+            passion: Math.min(Math.round((100 / steps) * step), 100),
+          });
+          if (step >= steps) clearInterval(timer);
+        }, stepTime);
+      },
+      { threshold: 0.5 }
+    );
+    statsObserver.observe(statsRef.current);
+    return () => statsObserver.disconnect();
   }, []);
 
   return (
@@ -123,21 +153,21 @@ export default function Home() {
               Design systems, landing pages, and polished web apps for modern
               brands.
             </p>
-            <div className={styles.stats}>
+            <div className={styles.stats} ref={statsRef}>
               <div className={styles.stat}>
-                <strong>8+</strong>
+                <strong>{counts.years}+</strong>
                 <br />
-                Years
+                <span>Years</span>
               </div>
               <div className={styles.stat}>
-                <strong>40+</strong>
+                <strong>{counts.projects}+</strong>
                 <br />
-                Projects
+                <span>Projects</span>
               </div>
               <div className={styles.stat}>
-                <strong>100%</strong>
+                <strong>{counts.passion}%</strong>
                 <br />
-                Passion
+                <span>Passion</span>
               </div>
             </div>
           </div>
@@ -146,11 +176,8 @@ export default function Home() {
       {/*  services */}
       <aside className={styles.services} id="services">
         <div className={styles.servicesContent}>
-          <h2>Why Choose US?</h2>
-          <p>
-            We are a team of passionate developers and designers who are
-            dedicated to creating amazing digital experiences.
-          </p>
+          <h2>Why Choose Me?</h2>
+          <p>I craft clean, functional digital experiences with a focus on quality.</p>
         </div>
         <div className={styles.cards}>
           <div className={styles.card}>
