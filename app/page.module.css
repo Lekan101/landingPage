@@ -550,9 +550,13 @@ html {
   line-height: 1.5;
 }
 
+.skillsSection{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .skillBarGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
