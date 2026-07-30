@@ -300,16 +300,36 @@ export default function Home() {
             </div>
             <form
               className={styles.contactForm}
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                alert("Thanks for your message!");
+                const form = e.currentTarget;
+                const data = {
+                  name: (form.elements.namedItem('name') as HTMLInputElement).value,
+                  email: (form.elements.namedItem('email') as HTMLInputElement).value,
+                  message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+                };
+                try {
+                  const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                  });
+                  if (res.ok) {
+                    alert('Thanks for your message!');
+                    form.reset();
+                  } else {
+                    alert('Failed to send. Try again later.');
+                  }
+                } catch {
+                  alert('Failed to send. Check your connection.');
+                }
               }}
             >
-              <input type="text" placeholder="Your Name" />
+              <input type="text" name="name" placeholder="Your Name" required />
 
-              <input type="email" placeholder="Email" />
+              <input type="email" name="email" placeholder="Email" required />
 
-              <textarea placeholder="Message" />
+              <textarea name="message" placeholder="Message" required />
 
               <button>Send Message</button>
             </form>
