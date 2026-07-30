@@ -180,7 +180,7 @@ export default function Home() {
         </p>
         <div className={styles.gridProjectsGrid}>
           <a
-            href="https://yourproject.com"
+            href="https://dentist-home-page.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.projectLink}
@@ -204,7 +204,7 @@ export default function Home() {
             </article>
           </a>
           <a
-            href="https://yourproject.com"
+            href="https://predictify-frontend.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.projectLink}
@@ -228,7 +228,7 @@ export default function Home() {
             </article>
           </a>
           <a
-            href="https://yourproject.com"
+            href="https://petchain.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.projectLink}
